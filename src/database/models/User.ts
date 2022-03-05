@@ -1,11 +1,14 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
+import { comparePasswords, hashPassword } from '@helpers/password';
 
-interface UserType {
+export interface UserType {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
   phoneNumber: string;
+  isValidPassword: (password: string) => boolean;
+  id?: string;
 }
 
 const userSchema = new Schema<UserType>({
@@ -21,6 +24,7 @@ const userSchema = new Schema<UserType>({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -29,10 +33,24 @@ const userSchema = new Schema<UserType>({
   phoneNumber: {
     type: String,
     required: true,
+    unique: true,
   },
 });
 
-userSchema.pre("save", (next) => {
+userSchema.pre('save', async function (next) {
+  this.password = await hashPassword(this.password);
   next();
 });
-export default mongoose.model("User", userSchema);
+
+userSchema.methods.isValidPassword = function (password: string): Promise<boolean> {
+  return comparePasswords(password, this.password);
+};
+
+userSchema.set('toJSON', {
+  transform(doc, ret) {
+    delete ret.password;
+    return ret;
+  },
+});
+
+export default mongoose.model('User', userSchema);

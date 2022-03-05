@@ -1,4 +1,4 @@
-"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -18,5 +18,5 @@ const catchHTTPError = callbackFunc => {
   };
 };
 
-var _default = catchHTTPError;
+const _default = catchHTTPError;
 exports.default = _default;

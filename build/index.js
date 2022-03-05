@@ -1,12 +1,12 @@
-"use strict";
 
-var _cors = _interopRequireDefault(require("cors"));
 
-var _dotenv = _interopRequireDefault(require("dotenv"));
+const _cors = _interopRequireDefault(require("cors"));
 
-var _express = _interopRequireDefault(require("express"));
+const _dotenv = _interopRequireDefault(require("dotenv"));
 
-var _routes = _interopRequireDefault(require("./routes"));
+const _express = _interopRequireDefault(require("express"));
+
+const _routes = _interopRequireDefault(require("./routes"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

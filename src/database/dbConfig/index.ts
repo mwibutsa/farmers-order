@@ -1,4 +1,5 @@
-import mongoose, { ConnectOptions } from "mongoose";
+import mongoose, { ConnectOptions } from 'mongoose';
+import 'dotenv/config';
 
 const mongooseOptions: ConnectOptions = {
   autoIndex: false,
@@ -8,10 +9,7 @@ const mongooseOptions: ConnectOptions = {
   family: 4,
 };
 
-mongoose.connect(
-  "mongodb://localhost:27017/farmers_order",
-  mongooseOptions,
-  () => {
-    console.log("Connected to the database");
-  }
-);
+mongoose.connect(String(process.env.MONGO_URL), mongooseOptions, () => {
+  // eslint-disable-next-line no-console
+  console.log('Connected to the database');
+});

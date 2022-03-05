@@ -12,22 +12,23 @@
     "outDir": "./build",
     "typeRoots": ["node_modules/@types", "src/types"],
     "paths": {
-      "types/*": ["src/types/*"],
-      "helpers/*": ["src/helpers/*"],
-      "testUtils/*": ["src/testUtils/*"],
-      "utils/*": ["src/utils/*"],
-      "models/*": ["src/database/models/*"],
-      "models": ["src/database/models"],
-      "dbConfig/*": ["src/database/dbConfig/*"],
-      "controllers/*": ["src/controllers/*"],
-      "routes/*": ["src/routes/*"],
-      "routes": ["src/routes"],
-      "middleware/*": ["src/middleware/*"],
-      "emails/*": ["src/emails/*"],
-      "tests/*": ["src/tests/*"],
-      "swagger": ["src/swagger"]
+      "@types/*": ["src/types/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@constants/*": ["src/constants/*"],
+      "@testUtils/*": ["src/helpers/testUtils/*"],
+      "@utils/*": ["src/utils/*"],
+      "@models/*": ["src/database/models/*"],
+      "@models": ["src/database/models"],
+      "@dbConfig": ["src/database/dbConfig"],
+      "@controllers/*": ["src/controllers/*"],
+      "@routes/*": ["src/routes/*"],
+      "@routes": ["src/routes"],
+      "@middleware/*": ["src/middleware/*"],
+      "@emails/*": ["src/emails/*"],
+      "@tests/*": ["src/tests/*"],
+      "@swagger": ["src/swagger"]
     }
   },
-  "include": ["./src/**/*", "tests"],
+  "include": ["./src/**/*", "__tests__"],
   "exclude": ["node_modules", "coverage", "docs"]
 }
