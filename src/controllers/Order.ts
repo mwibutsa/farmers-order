@@ -13,7 +13,7 @@ class Order {
    * @returns {Promise<Response>} - list of current user orders
    */
   static async getUserOrders(req: Request, res: Response): Promise<Response> {
-    const orders = await OrderModel.find({ owner: req.currentUserId });
+    const orders = await OrderModel.find({ owner: req.currentUserId }).limit(5);
     return jsonResponse({ status: statusCodes.HTTP_OK, data: orders, res });
   }
 
