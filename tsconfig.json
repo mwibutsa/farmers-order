@@ -15,7 +15,7 @@
       "@types/*": ["src/types/*"],
       "@helpers/*": ["src/helpers/*"],
       "@constants/*": ["src/constants/*"],
-      "@testUtils/*": ["src/testUtils/*"],
+      "@testUtils/*": ["src/helpers/testUtils/*"],
       "@utils/*": ["src/utils/*"],
       "@models/*": ["src/database/models/*"],
       "@models": ["src/database/models"],

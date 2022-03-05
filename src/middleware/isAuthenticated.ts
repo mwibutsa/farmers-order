@@ -11,9 +11,9 @@ import * as statusCodes from '@constants/statusCodes';
  */
 const isAuthenticated = (req: Request, res: Response, next: NextFunction): void | Response => {
   let token = req.headers['x-token'];
-  token = String(token).replace('Bearer ', '');
 
   if (token) {
+    token = String(token).replace('Bearer ', '');
     const decodedToken = verifyToken(token);
     if (decodedToken.id) {
       req.currentUserId = decodedToken.id;

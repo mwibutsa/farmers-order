@@ -4,6 +4,7 @@ import { UserType } from './User';
 export interface StoreType {
   storeName: string;
   owner: PopulatedDoc<UserType>;
+  id?: string;
 }
 
 const storeSchema = new Schema<StoreType>({
