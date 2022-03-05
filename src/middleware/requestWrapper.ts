@@ -1,16 +1,16 @@
-import { NextFunction, Request, Response } from "express";
+import createError, { UnknownError } from 'http-errors';
+import { NextFunction, Request, Response } from 'express';
+import * as statusCodes from '@constants/statusCodes';
 
-const requestWrapper = (
-  callbackFunc: (req: Request, res: Response) => void
-) => {
-  return async (req: Request, res: Response, next: NextFunction) => {
+const requestWrapper = (callbackFunc: (req: Request, res: Response, next?: NextFunction) => Promise<Response>) => {
+  return async (req: Request, res: Response, next: NextFunction): Promise<unknown> => {
     try {
-      await callbackFunc(req, res);
-      next?.();
-    } catch (error: any) {
-      return res
-        .status(error?.statusCode || 500)
-        .json({ error: error?.message });
+      await callbackFunc(req, res, next);
+    } catch (error) {
+      if (createError.isHttpError(error)) {
+        return next(error);
+      }
+      return next(createError(statusCodes.HTTP_SERVER_ERROR, error as UnknownError));
     }
   };
 };

@@ -1,11 +1,11 @@
-"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-var _models = require("../database/models");
+const _models = require("../database/models");
 
 class UserController {
   static async login(req, res) {
@@ -30,5 +30,5 @@ class UserController {
 
 }
 
-var _default = UserController;
+const _default = UserController;
 exports.default = _default;
