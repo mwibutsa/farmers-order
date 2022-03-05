@@ -13,8 +13,7 @@ Simple farmer ordering system
 - [MongoDB](https://www.mongodb.com/)
 - [Mongoose ORM](https://mongoosejs.com/)
 - [Typescript](https://www.typescriptlang.org/)
-- A package manager -
-- [Yarn](https://yarnpkg.com/lang/en/) (preferred) or [NPM](https://www.npmjs.com/)
+- A package manager - [Yarn](https://yarnpkg.com/lang/en/) (preferred) or [NPM](https://www.npmjs.com/)
 
 
 
