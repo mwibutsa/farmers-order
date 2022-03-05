@@ -1,6 +1,4 @@
-import DBConnection from '@dbConfig';
-
-DBConnection.connect();
+import '@dbConfig';
 
 export { default as UserModel } from './User';
 export { default as StoreModel } from './Store';

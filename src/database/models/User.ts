@@ -8,6 +8,7 @@ export interface UserType {
   password: string;
   phoneNumber: string;
   isValidPassword: (password: string) => boolean;
+  id?: string;
 }
 
 const userSchema = new Schema<UserType>({
