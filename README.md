@@ -46,7 +46,7 @@ To install dependencies defined in the `package.json` file run:
     $ yarn install
 ```
 
-Create a `.env` file and add all variables as defined in the `.env.example` file
+Create a `.env` and `.env.test` filels and add all variables as defined in the `.env.example` file
 
 ```ch
     touch .env
