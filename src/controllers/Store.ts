@@ -14,9 +14,7 @@ class Store {
    */
   static async getStores(req: Request, res: Response): Promise<Response> {
     const stores = await StoreModel.find().limit(5);
-    return res.status(statusCodes.HTTP_OK).json({
-      stores,
-    });
+    return jsonResponse({ res, data: stores });
   }
 
   /**
