@@ -20,7 +20,7 @@ class UserController {
     if (user && (await user.isValidPassword(password))) {
       const token = generateToken({ id: user.id, firstName: user.firstName, lastName: user.lastName });
 
-      return jsonResponse({ status: statusCodes.HTTP_OK, token, res });
+      return jsonResponse({ token, res });
     }
 
     return jsonResponse({ status: statusCodes.HTTP_BAD_REQUEST, message: 'Invalid user credentials', res });

@@ -1,15 +1,19 @@
 import mongoose, { Schema, PopulatedDoc } from 'mongoose';
 import { PENDING } from '@constants/orderStatus';
+import { FertilizerType } from './Fertilizer';
+import { SeedType } from './Seed';
 import { StoreType } from './Store';
 import { UserType } from './User';
 
 export interface OrderType {
   store: PopulatedDoc<StoreType>;
-  owner: PopulatedDoc<UserType>;
+  farmer: PopulatedDoc<UserType>;
   landSize: number;
   seedQuantity: number;
   fertilizerQuantity: number;
   status: string;
+  seed: PopulatedDoc<SeedType>;
+  fertilizer: PopulatedDoc<FertilizerType>;
 }
 
 const orderSchema = new Schema<OrderType>({
@@ -18,7 +22,7 @@ const orderSchema = new Schema<OrderType>({
     required: true,
     ref: 'Store',
   },
-  owner: {
+  farmer: {
     type: Schema.Types.ObjectId,
     required: true,
     ref: 'User',
@@ -26,6 +30,16 @@ const orderSchema = new Schema<OrderType>({
   landSize: {
     type: Number,
     required: true,
+  },
+  seed: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Seed',
+  },
+  fertilizer: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Fertilizer',
   },
   seedQuantity: Number,
   fertilizerQuantity: Number,
